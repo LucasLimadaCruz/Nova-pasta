@@ -1,0 +1,677 @@
+:root {
+
+  --pink-neon: #ff71ce;
+  --blue-cyan: #01cdfe;
+  --green-neon: #05ffa1;
+  --purple-dark: #2c1654;
+  --purple-bg: #120428;
+  --yellow-sun: #fffb96;
+
+  --font-retro: 'VT323', monospace;
+  --font-pixel: 'Press Start 2P', cursive;
+}
+
+
+/* RESET */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* FUNDO */
+
+body {
+
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      180deg,
+      #120428 0%,
+      #2c1654 50%,
+      #ff71ce 100%
+    );
+
+  font-family: var(--font-retro);
+
+  color: white;
+
+  overflow-x: hidden;
+
+  position: relative;
+}
+
+
+/* SCANLINES */
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.20) 50%
+    );
+
+  background-size: 100% 4px;
+
+  pointer-events: none;
+
+  z-index: 100;
+}
+
+
+/* ================================= */
+/* ÁREA PRINCIPAL */
+/* ================================= */
+
+.loja {
+
+  width: 100%;
+
+  max-width: 1250px;
+
+  min-height: 100vh;
+
+  margin: auto;
+
+  padding: 50px 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 60px;
+}
+
+
+/* ================================= */
+/* CALCULADORA */
+/* ================================= */
+
+.calculator-card {
+
+  background:
+    rgba(44, 22, 84, 0.90);
+
+  border: 3px solid var(--blue-cyan);
+
+  box-shadow:
+    0 0 15px var(--blue-cyan),
+    inset 0 0 15px var(--pink-neon);
+
+  padding: 2rem;
+
+  border-radius: 8px;
+
+  width: 500px;
+
+  min-width: 500px;
+
+  text-align: center;
+
+  position: relative;
+
+  z-index: 1;
+
+  backdrop-filter: blur(5px);
+
+img{
+    width: 330px;
+    height: auto;
+}
+
+}
+.imagem{
+img{
+    width: 300px;   
+    display: grid;
+    gap: 15px;
+    margin-right: 100px;
+}   
+    
+}
+
+/* CABEÇALHO */
+
+.calculator-header {
+
+  margin-bottom: 1.5rem;
+
+}
+
+
+.glitch-title {
+
+  font-family: var(--font-pixel);
+
+  font-size: 1.2rem;
+
+  color: var(--yellow-sun);
+
+  text-shadow:
+    2px 2px var(--pink-neon),
+    -2px -2px var(--blue-cyan);
+
+  margin-bottom: 10px;
+
+  letter-spacing: 2px;
+}
+
+
+
+
+.subtitle {
+
+  font-size: 1.2rem;
+
+  color: var(--green-neon);
+
+  letter-spacing: 4px;
+}
+
+
+/* FORM */
+
+.calculator-form {
+
+  display: flex;
+
+  
+
+  gap: 15px;
+
+  align-items: center;
+}
+
+
+/* INPUT */
+
+.input-group {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  width: 100%;
+}
+
+
+.input-group label {
+
+  font-size: 1.3rem;
+
+  color: var(--pink-neon);
+
+  margin-bottom: 5px;
+
+  text-shadow:
+    0 0 5px var(--pink-neon);
+}
+
+
+.input-group input {
+
+  width: 100%;
+
+  height: 65px;
+
+  background:
+    rgba(18, 4, 40, 0.95);
+
+  border: 2px solid var(--pink-neon);
+
+  color: var(--yellow-sun);
+
+  font-family: var(--font-retro);
+
+  font-size: 2rem;
+
+  padding: 12px 20px;
+
+  border-radius: 4px;
+
+  outline: none;
+
+  box-shadow:
+    inset 0 0 8px
+    rgba(255, 113, 206, 0.5);
+
+  transition: 0.3s;
+}
+
+
+.input-group input:focus {
+
+  border-color: var(--blue-cyan);
+
+  box-shadow:
+    0 0 15px var(--blue-cyan);
+
+}
+
+
+/* OPERADOR */
+
+.operator {
+
+  font-size: 2.5rem;
+
+  color: var(--green-neon);
+
+  text-shadow:
+    0 0 8px var(--green-neon);
+
+}
+
+
+/* BOTÃO */
+
+.vapor-button {
+
+  margin-top: 10px;
+
+  width: 100%;
+
+  padding: 18px;
+
+  background: transparent;
+
+  border: 2px solid var(--green-neon);
+
+  color: var(--green-neon);
+
+  font-family: var(--font-pixel);
+
+  font-size: 0.8rem;
+
+  cursor: pointer;
+
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 0 8px var(--green-neon);
+
+  transition: 0.2s;
+}
+
+
+.vapor-button:hover {
+
+  background: var(--green-neon);
+
+  color: var(--purple-bg);
+
+  box-shadow:
+    0 0 25px var(--green-neon);
+
+}
+
+
+/* RESULTADO */
+
+.result-container {
+
+  margin-top: 25px;
+
+  padding-top: 20px;
+
+  border-top:
+    2px solid var(--pink-neon);
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.result-label {
+
+  font-size: 1.3rem;
+
+  color: var(--blue-cyan);
+
+  text-shadow:
+    0 0 5px var(--blue-cyan);
+}
+
+
+.result-display {
+
+  background: #000;
+
+  border:
+    2px solid var(--yellow-sun);
+
+  color: var(--yellow-sun);
+
+  font-size: 2.2rem;
+
+  padding: 12px;
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 0 10px var(--yellow-sun);
+
+  min-height: 60px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* ================================= */
+/* VITRINE */
+/* ================================= */
+
+.vitrine {
+
+  flex: 1;
+
+  max-width: 650px;
+
+}
+
+
+/* CABEÇALHO DA VITRINE */
+
+.vitrine-header {
+
+  margin-bottom: 25px;
+
+}
+
+
+.vitrine-header h2 {
+
+  font-family: var(--font-pixel);
+
+  font-size: 1.2rem;
+
+  color: var(--yellow-sun);
+
+  text-shadow:
+    2px 2px var(--pink-neon),
+    -2px -2px var(--blue-cyan);
+
+  margin-bottom: 10px;
+}
+
+
+.vitrine-header p {
+
+  font-size: 1.3rem;
+
+  color: var(--green-neon);
+
+  letter-spacing: 3px;
+}
+
+
+/* ================================= */
+/* GRID DOS PRODUTOS */
+/* ================================= */
+
+.produtos {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+
+/* ================================= */
+/* CARD DO ÓCULOS */
+/* ================================= */
+
+.produto {
+
+  background:
+    rgba(18, 4, 40, 0.85);
+
+  border:
+    2px solid var(--pink-neon);
+
+  border-radius: 8px;
+
+  padding: 15px;
+
+  text-align: center;
+
+  box-shadow:
+    0 0 10px
+    rgba(255, 113, 206, 0.5);
+
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+
+}
+
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.produto:hover {
+
+  transform:
+    translateY(-8px);
+
+  border-color:
+    var(--blue-cyan);
+
+  box-shadow:
+    0 0 20px var(--blue-cyan);
+}
+
+
+/* ================================= */
+/* ÁREA DA IMAGEM */
+/* ================================= */
+
+.imagem-oculos {
+
+  width: 100%;
+
+  height: 150px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #24104d,
+      #120428
+    );
+
+  border:
+    1px solid var(--blue-cyan);
+
+  border-radius: 5px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 12px;
+
+  overflow: hidden;
+}
+
+
+/* IMAGEM DO ÓCULOS */
+
+.imagem-oculos img {
+
+  width: 90%;
+
+  height: 90%;
+
+  object-fit: contain;
+
+  transition:
+    transform 0.3s;
+}
+
+
+.produto:hover
+.imagem-oculos img {
+
+  transform:
+    scale(1.12);
+}
+
+
+/* NOME DO PRODUTO */
+
+.produto h3 {
+
+  font-family:
+    var(--font-pixel);
+
+  font-size:
+    0.65rem;
+
+  color:
+    var(--yellow-sun);
+
+  margin-bottom:
+    8px;
+}
+
+
+/* PREÇO */
+
+.produto p {
+
+  font-size:
+    1.4rem;
+
+  color:
+    var(--green-neon);
+
+  margin-bottom:
+    12px;
+}
+
+
+/* BOTÃO DO PRODUTO */
+
+.produto button {
+
+  width:
+    100%;
+
+  padding:
+    9px;
+
+  background:
+    transparent;
+
+  border:
+    1px solid var(--blue-cyan);
+
+  color:
+    var(--blue-cyan);
+
+  font-family:
+    var(--font-retro);
+
+  font-size:
+    1.1rem;
+
+  cursor:
+    pointer;
+
+  transition:
+    0.2s;
+}
+
+
+.produto button:hover {
+
+  background:
+    var(--blue-cyan);
+
+  color:
+    #120428;
+
+  box-shadow:
+    0 0 15px var(--blue-cyan);
+}
+
+
+/* ================================= */
+/* CELULAR */
+/* ================================= */
+
+@media (max-width: 1000px) {
+
+  .loja {
+
+    flex-direction:
+      column;
+
+    padding:
+      30px 20px;
+
+  }
+
+
+  .calculator-card {
+
+    width:
+      100%;
+
+    min-width:
+      0;
+
+    max-width:
+      500px;
+
+  }
+
+
+  .vitrine {
+
+    width:
+      100%;
+
+    max-width:
+      650px;
+
+  }
+
+}
+
+
+@media (max-width: 550px) {
+
+  .produtos {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+}
